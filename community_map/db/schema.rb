@@ -10,19 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201220223919) do
+ActiveRecord::Schema.define(version: 20201226230221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "people", force: :cascade do |t|
-    t.string   "name"
-    t.string   "pronouns"
-    t.string   "address"
-    t.string   "fblink"
-    t.string   "iglink"
-    t.string   "lilink"
-    t.string   "tags"
+    t.text     "name"
+    t.text     "pronouns"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
