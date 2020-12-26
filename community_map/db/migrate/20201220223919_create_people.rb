@@ -1,13 +1,13 @@
 class CreatePeople < ActiveRecord::Migration[5.0]
   def change
     create_table :people do |t|
-      t.string :name
-      t.string :pronouns
-      t.string :address
-      t.string :fblink
-      t.string :iglink
-      t.string :lilink
-      t.string :tags
+      t.text :name
+      t.text :pronouns
+      t.text :address
+      t.text :fblink
+      t.text :iglink
+      t.text :lilink
+      t.text :tags
       t.timestamps
     end
   end
