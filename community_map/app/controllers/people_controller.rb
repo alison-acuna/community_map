@@ -22,6 +22,6 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.permit(:name, :pronouns)
+    params.require(:person).permit(:name, :pronouns)
   end
 end
