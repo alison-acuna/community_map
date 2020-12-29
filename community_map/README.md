@@ -1,5 +1,13 @@
 # README
 
+https://guides.rubyonrails.org/getting_started.html
+
+NS:
+
+Add a back link to individual pages
+Add tags array to person object
+Research checklist for visualization 
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
