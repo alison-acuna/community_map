@@ -17,8 +17,8 @@
 
   <div>
     <%= form.label :tags %><br>
-    <%= form.collection_select :tag_id, Tag.order(:name),:id,:name, include_blank: true %>
-    <%= person.errors.full_messages_for(:pronouns).each do |message| %>
+    <%= collection_select(:person, :tag_ids, Tag.all, :id, :name, {}, { :multiple => true} ) %>
+    <%= person.errors.full_messages_for(:tags).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

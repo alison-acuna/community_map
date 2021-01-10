@@ -4,6 +4,7 @@
   <% @people.each do |person| %>
     <li>
       <%= link_to person.name, person %>
+      <%= person.tags.map(&:name).join(', ') %>
     </li>
   <% end %>
 </ul>

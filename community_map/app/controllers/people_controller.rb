@@ -16,11 +16,11 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
 
     params[:person][:tag_ids].each do |tag_id|
-      unless tag.empty?
+      unless tag_id.empty?
       tag = Tag.find(tag_id)
-          @boarding.tags << tag
+          @person.tags << tag
       end
-    end     
+    end
 
     if @person.save
       redirect_to @person
@@ -53,6 +53,6 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:name, :pronouns, {:tags => []})
+    params.require(:person).permit(:name, :pronouns, {:tag_ids => []})
   end
 end
