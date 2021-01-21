@@ -19,10 +19,12 @@ To run spec: `bundle exec rspec`
 Following https://relishapp.com/rspec/rspec-rails/docs/gettingstarted
 https://medium.com/@amliving/my-rails-rspec-set-up-6451269847f9
 
+https://avdi.codes/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/
 
 NS:
 
-Add better testing for current code 
+1. Sort a test db solution
+2. Add testing for tag code
 
 
 Move to Has Many/Belongs to both per to address duplication issue
