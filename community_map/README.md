@@ -7,17 +7,18 @@ Following http://joshfrankel.me/blog/create-a-many-to-many-activerecord-associat
 
 For UI on HABTM: https://russt.me/2018/06/many-to-many-user-interface-in-ruby-on-rails-5/
 
+https://blog.teamtreehouse.com/static-pages-ruby-rails
 
-
-Current Goal: Add home page for easier navigation
-
-Checklist:
 
 - Determine how to link to multiple pages: https://stackoverflow.com/questions/45258802/how-to-link-to-another-html-erb-file-in-ruby-on-rails
 - Move pages home to home page
 
 NS:
-Create page for all people associated with a tag
+Add spec
+
+Move to Has Many/Belongs to both per to address duplication issue
+
+https://stackoverflow.com/questions/21896450/habtm-duplicate-records/21896637#21896637
 
 Add a back link to individual pages
 

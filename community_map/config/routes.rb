@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "people#index"
+  root "pages#home"
   resources :people
   resources :tags
   get "/pages/:page" => "pages#show"
