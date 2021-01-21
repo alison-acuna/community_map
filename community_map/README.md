@@ -13,8 +13,17 @@ https://blog.teamtreehouse.com/static-pages-ruby-rails
 - Determine how to link to multiple pages: https://stackoverflow.com/questions/45258802/how-to-link-to-another-html-erb-file-in-ruby-on-rails
 - Move pages home to home page
 
+Add rspec
+
+To run spec: `bundle exec rspec`
+Following https://relishapp.com/rspec/rspec-rails/docs/gettingstarted
+https://medium.com/@amliving/my-rails-rspec-set-up-6451269847f9
+
+
 NS:
-Add spec
+
+Add better testing for current code 
+
 
 Move to Has Many/Belongs to both per to address duplication issue
 
