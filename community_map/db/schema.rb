@@ -10,14 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201226230221) do
+ActiveRecord::Schema.define(version: 20210110204612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "people", force: :cascade do |t|
-    t.text     "name"
-    t.text     "pronouns"
+  create_table "people", id: :serial, force: :cascade do |t|
+    t.text "name"
+    t.text "pronouns"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people_tags", id: false, force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["person_id", "tag_id"], name: "index_people_tags_on_person_id_and_tag_id"
+    t.index ["tag_id", "person_id"], name: "index_people_tags_on_tag_id_and_person_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

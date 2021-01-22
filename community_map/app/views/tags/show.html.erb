@@ -1,0 +1,16 @@
+<h1><%= @tag.name %></h1>
+
+<p><%= @tag.name %></p>
+
+<ul>
+  <% @tag.people.each do |person| %>
+    <li>
+      <%= link_to person.name, person %>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><%= link_to "Edit", edit_tag_path(@tag) %></li>
+  <li><%= link_to "Destroy", tag_path(@tag), method: :delete, data: { confirm: "Are you sure?" } %></li>
+</ul>

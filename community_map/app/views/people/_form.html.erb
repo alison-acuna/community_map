@@ -16,6 +16,14 @@
   </div>
 
   <div>
+    <%= form.label :tags %><br>
+    <%= collection_select(:person, :tag_ids, Tag.all, :id, :name, {}, { :multiple => true} ) %>
+    <%= person.errors.full_messages_for(:tags).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
