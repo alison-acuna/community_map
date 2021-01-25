@@ -13,6 +13,9 @@ https://blog.teamtreehouse.com/static-pages-ruby-rails
 - Determine how to link to multiple pages: https://stackoverflow.com/questions/45258802/how-to-link-to-another-html-erb-file-in-ruby-on-rails
 - Move pages home to home page
 
+https://gorails.com/setup/osx/10.12-sierra
+https://makandracards.com/makandra/21545-rbenv-how-to-switch-to-another-ruby-version-temporarily-per-project-or-globally
+
 NS:
 Add spec
 

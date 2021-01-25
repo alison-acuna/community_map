@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: community_map
+  database: community_map_dev
   pool: 5
-  username: 
+  username:
   password:
   timeout: 5000
 
@@ -47,8 +47,8 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: community_map
+  database: community_map_test
   pool: 5
-  username:
+  username: 
   password:
   timeout: 5000
