@@ -30,7 +30,11 @@ describe Person do
 
     it 'checks that a person can be deleted' do
       @person.destroy
-      expect(@person).not_to exist
+      expect(Person.find_by_name("test human")).to eq(nil)
+    end
+
+    after(:all) do
+      @person.destroy
     end
   end
 end
