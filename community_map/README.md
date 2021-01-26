@@ -25,6 +25,7 @@ https://medium.com/@amliving/my-rails-rspec-set-up-6451269847f9
 
 https://avdi.codes/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/
 
+https://stackoverflow.com/questions/25877734/rails-4-how-to-reset-test-database
 
 NS:
 
