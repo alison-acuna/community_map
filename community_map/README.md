@@ -122,6 +122,19 @@ Test still runs fine
 https://stackoverflow.com/questions/20266686/whats-the-correct-way-to-add-objects-via-the-has-many-through-association
 https://stackoverflow.com/questions/53586779/activerecordrecordinvalid-validation-failed-technologies-portfolio-must-exis
 
+dupes issue:
+
+https://stackoverflow.com/questions/21896450/habtm-duplicate-records/21896637#21896637
+https://stackoverflow.com/questions/5129702/ruby-on-rails-activerecord-has-many-through-uniqueness-validation
+
+[2] pry(#<PeopleController>)> @person.person_tags
+  PersonTag Load (1.9ms)  SELECT "person_tags".* FROM "person_tags" WHERE "person_tags"."person_id" = $1 ORDER BY "person_tags"."rank" ASC  [["person_id", 4]]
+=> [#<PersonTag:0x000000012bc849d0 person_id: 4, tag_id: 1, id: nil, rank: 0>,
+ #<PersonTag:0x000000012bca6a58 person_id: 4, tag_id: 1, id: nil, rank: 0>]
+
+The issue is the presenece of a duplicate relationship is causing it to fail to save
+https://stackoverflow.com/questions/315792/how-to-avoid-duplicates-in-a-has-many-through-relationship
+
 7. Write a blog post on why to use the newer form.
 
 

@@ -15,20 +15,11 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     params[:person][:tag_ids].each do |tag_id|
-      require 'pry'
-      binding.pry
       unless tag_id.empty?
-      @tag = Tag.find(tag_id)
+        @tag = Tag.find(tag_id)
         @person.person_tags.build(person: @person, tag: @tag)
       end
     end
-    # params[:person][:tag_ids].each do |tag_id|
-    #   unless tag_id.empty?
-    #   tag = Tag.find(tag_id)
-    #       @person.tags << tag
-    #   end
-    # end
-
     if @person.save!
       redirect_to @person
     else
