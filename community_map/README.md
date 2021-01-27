@@ -116,6 +116,12 @@ Finger flub
 New issue: People are saving/displaying
 We have a dupes issue?
 
+people saving/displaying:
+
+Test still runs fine
+https://stackoverflow.com/questions/20266686/whats-the-correct-way-to-add-objects-via-the-has-many-through-association
+https://stackoverflow.com/questions/53586779/activerecordrecordinvalid-validation-failed-technologies-portfolio-must-exis
+
 7. Write a blog post on why to use the newer form.
 
 
