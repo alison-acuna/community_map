@@ -1,4 +1,5 @@
 class Tag < ApplicationRecord
   validates :name, presence: true
-  has_and_belongs_to_many :people
+  has_many :person_tags, dependent: :destroy
+  has_many :people, -> { distinct }, through: :person_tags
 end

@@ -14,15 +14,13 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-
     params[:person][:tag_ids].each do |tag_id|
       unless tag_id.empty?
-      tag = Tag.find(tag_id)
-          @person.tags << tag
+        @tag = Tag.find(tag_id)
+        @person.person_tags.build(person: @person, tag: @tag)
       end
     end
-
-    if @person.save
+    if @person.save!
       redirect_to @person
     else
       render :new
@@ -53,6 +51,6 @@ class PeopleController < ApplicationController
   end
 
   def person_params
-    params.require(:person).permit(:name, :pronouns, {:tag_ids => []})
+    params.require(:person).permit(:id, :name, :pronouns, {:tag_ids => []})
   end
 end

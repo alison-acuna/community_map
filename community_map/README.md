@@ -27,15 +27,120 @@ https://avdi.codes/configuring-database_cleaner-with-rails-rspec-capybara-and-se
 
 https://stackoverflow.com/questions/25877734/rails-4-how-to-reset-test-database
 
-NS:
-
-1. Sort a test db solution
-2. Add testing for tag code
-
+Next Goal:
 
 Move to Has Many/Belongs to both per to address duplication issue
 
 https://stackoverflow.com/questions/21896450/habtm-duplicate-records/21896637#21896637
+
+Use:
+
+validates_uniqueness_of :theme_id, :scope => :game_id
+As follows:
+
+class Theme < ActiveRecord::Base
+  has_many :games, through: :games_themes
+end
+
+class Game < ActiveRecord::Base
+  has_many :themes, through: :games_themes
+end
+
+class GamesThemes < ActiveRecord::Base
+  belongs_to :game
+  belongs_to :theme
+
+  validates_uniqueness_of :theme_id, :scope => :game_id
+end
+
+https://medium.com/rubycademy/habtm-to-has-many-through-43f68f50e50e
+
+Checklist:
+
+1. Create migration
+- `bin/rails generate migration AddPrimaryKeyAndRankToPeopleTags`
+2. Adjust migration to include:
+```
+def change
+    rename_table 'people_tags', 'person_tags'
+    add_column :person_tags, :id, :primary_key
+    add_column :person_tags, :rank, :integer, default: 0
+  end
+end  
+```  
+3. Run migration `bin/rails db:migrate VERSION=20210127173620`
+
+4. Update Models
+
+```
+class Person < ApplicationRecord
+  has_many :person_tags, -> { order(rank: :asc) }
+  has_many :tags, through: :person_tags
+end
+```
+
+```
+class PersonTag < ApplicationRecord
+  belongs_to :person
+  belongs_to :tag
+end
+```
+
+```
+class Tag < ApplicationRecord
+  has_many :person_tags
+  has_many :people, through: :person_tags
+end
+```
+
+5. Generate Model for person_tags
+
+`bin/rails generate model PersonTags`
+Nope!
+
+Try creating file as stand alone
+
+6. Verify that the change worked -
+- Create person with tags
+- Display tags with people
+- Delete etc
+
+1st Issue
+
+Showing /Users/alisonacuna/Desktop/Repos/community_map/community_map/app/views/tags/show.html.erb where line #6 raised:
+
+Could not find the source association(s) "person" or :people in model PersonTag. Try 'has_many :people, :through => :person_tags, :source => <name>'. Is it one of post or tag?
+
+Finger flub
+
+New issue: People are saving/displaying
+We have a dupes issue?
+
+people saving/displaying:
+
+Test still runs fine
+https://stackoverflow.com/questions/20266686/whats-the-correct-way-to-add-objects-via-the-has-many-through-association
+https://stackoverflow.com/questions/53586779/activerecordrecordinvalid-validation-failed-technologies-portfolio-must-exis
+
+dupes issue:
+
+https://stackoverflow.com/questions/21896450/habtm-duplicate-records/21896637#21896637
+https://stackoverflow.com/questions/5129702/ruby-on-rails-activerecord-has-many-through-uniqueness-validation
+
+[2] pry(#<PeopleController>)> @person.person_tags
+  PersonTag Load (1.9ms)  SELECT "person_tags".* FROM "person_tags" WHERE "person_tags"."person_id" = $1 ORDER BY "person_tags"."rank" ASC  [["person_id", 4]]
+=> [#<PersonTag:0x000000012bc849d0 person_id: 4, tag_id: 1, id: nil, rank: 0>,
+ #<PersonTag:0x000000012bca6a58 person_id: 4, tag_id: 1, id: nil, rank: 0>]
+
+The issue is the presenece of a duplicate relationship is causing it to fail to save
+https://stackoverflow.com/questions/315792/how-to-avoid-duplicates-in-a-has-many-through-relationship
+
+7. Write a blog post on why to use the newer form.
+
+
+
+
+
 
 Add a back link to individual pages
 
