@@ -138,7 +138,23 @@ https://stackoverflow.com/questions/315792/how-to-avoid-duplicates-in-a-has-many
 7. Write a blog post on why to use the newer form.
 
 
+Next Steps:  visualization POC
 
+https://blog.arkency.com/2017/07/how-to-quickly-add-graphs-and-charts-to-rails-app/
+
+https://developers.google.com/chart/interactive/docs/gallery/orgchart
+
+Checklist:
+
+1. Confirm/Setup javascript https://guides.rubyonrails.org/working_with_javascript_in_rails.html
+- https://www.freecodecamp.org/news/how-to-add-javascript-to-your-rails-6-app/
+- https://www.jetbrains.com/help/ruby/add-a-javascript-asset-to-the-rails-application.html
+
+Current Issue:
+
+The expected Rails 6 app/javascript/packs folder.  I expect this is because I upgraded. Need to determine how to get this added. 
+2. Recreate https://developers.google.com/chart/interactive/docs/gallery/orgchart
+3. Pull from https://blog.arkency.com/2017/07/how-to-quickly-add-graphs-and-charts-to-rails-app/ to sub your data
 
 
 
